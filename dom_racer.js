@@ -52,8 +52,10 @@ let create = () => {
 
   if (r < 0.6)
     import('./mobs/squareOkBtn.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * d.clientWidth), d.clientHeight)});
-  else
+  else if (r < 0.9)
     import('./mobs/decrement.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * d.clientWidth), d.clientHeight)});
+  else
+    import('./mobs/textBox.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * d.clientWidth), d.clientHeight)});
 }
 
 // Main loop
