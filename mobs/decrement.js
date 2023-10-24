@@ -1,26 +1,12 @@
-import { uuidv4 } from "/lib/uuid.js";
+import { newMob } from "./mob.js";
 
 export function create (x, y) {
 
-  let newEl = document.createElement("div");
+  let width = 60;
+  let height = 90;
+  x = x - width;
 
-  newEl.id = uuidv4();
-  window.mobs.add(newEl.id);
-
-  newEl.style.position = "absolute";
-
-  newEl.style.left = x + "px";
-  newEl.style.top = y + "px";
-
-  newEl.style.width = "60px";
-  newEl.style.height = "90px";
-  newEl.style.borderStyle = "solid";
-  newEl.style.borderWidth = "2px";
-
-  newEl.style.display = "flex";
-  newEl.style.alignContent = "center";
-  newEl.style.justifyContent = "center";
-  newEl.style.textAlign = "center";
+  let newEl = newMob(x, y, width, height);
 
   newEl.count = Math.round(Math.random() * 9 + 1);
 
@@ -40,8 +26,4 @@ export function create (x, y) {
 
   document.getElementById("main").appendChild(newEl);
   return newEl;
-
 }
-
-
-console.log(uuidv4());
