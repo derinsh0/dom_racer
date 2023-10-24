@@ -1,4 +1,4 @@
-import { newMob } from "./mob.js";
+import { newMob, killMob } from "./mob.js";
 
 export function create (x, y) {
 
@@ -20,7 +20,7 @@ export function create (x, y) {
   newBtn.style.width = "50px";
   newBtn.style.margin = "auto";
   newBtn.innerHTML = "<";
-  newBtn.addEventListener("click", () => {newEl.count--;disp.innerHTML=newEl.count; if (newEl.count == 0) {window.mobs.delete(newEl.id);newEl.remove();window.score++;}})
+  newBtn.addEventListener("click", () => {newEl.count--;disp.innerHTML=newEl.count; if (newEl.count == 0) {killMob(newEl)}})
 
   newEl.appendChild(newBtn);
 

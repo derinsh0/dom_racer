@@ -1,4 +1,4 @@
-import { newMob } from "./mob.js";
+import { newMob, killMob } from "./mob.js";
 
 export function create (x, y) {
 
@@ -21,7 +21,7 @@ export function create (x, y) {
   input.style.width = "80px";
   input.style.margin = "auto";
 
-  input.addEventListener("input", e => {if (input.value === string) {window.mobs.delete(newEl.id);newEl.remove();window.score++;}});
+  input.addEventListener("input", e => {if (input.value === string) {killMob(newEl)}});
 
   newEl.appendChild(input);
 

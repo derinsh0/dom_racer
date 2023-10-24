@@ -26,3 +26,10 @@ export function newMob (x, y, w, h) {
   window.mobs.add(newEl.id);
   return newEl;
 }
+
+export function killMob (el) {
+
+  window.mobs.delete(el.id);
+  el.remove();
+  window.score++;
+}
