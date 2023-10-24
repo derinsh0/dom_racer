@@ -1,5 +1,7 @@
 
 let doc = document;
+let b;
+let d;
 
 window.mobs = new Set([]);
 window.score = 0;
@@ -9,10 +11,10 @@ let t = 0;
 let difficulty = 0.02;
 
 let init = () => {
-  let b = doc.createElement("body");
+  b = doc.createElement("body");
   b.id = "BODDAY";
   doc.body = b;
-  let d = doc.createElement("div");
+  d = doc.createElement("div");
   d.id = "main";
   d.style.minWidth = "99vw";
   d.style.minHeight = "99vh";
@@ -37,14 +39,12 @@ let create = () => {
   let r = Math.random();
 
   if (r < 0.6)
-    import('./mobs/squareOkBtn.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * window.innerWidth), window.innerHeight)});
+    import('./mobs/squareOkBtn.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * d.clientWidth), d.clientHeight)});
   else
-    import('./mobs/decrement.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * window.innerWidth), window.innerHeight)});
+    import('./mobs/decrement.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * d.clientWidth), d.clientHeight)});
 }
 
 window.main = (ts) => {
-
-  console.log(t);
 
   if (start == undefined) {
     start = ts;
@@ -74,8 +74,6 @@ window.main = (ts) => {
 
     x = el.style.left;
     y = parseInt(el.style.top.split("px")[0])
-
-    console.log(y);
 
     if (y > 0) {
       y = y - 1;
