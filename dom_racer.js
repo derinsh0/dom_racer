@@ -1,15 +1,24 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                 Dom Racer                                 //
+///////////////////////////////////////////////////////////////////////////////
 
+// Globals
 let doc = document;
 let b;
 let d;
 
+// State
 window.mobs = new Set([]);
 window.score = 0;
 
+// Game settings
 let start = 0;
 let t = 0;
 let difficulty = 0.02;
 
+
+// Init document
+//
 let init = () => {
   b = doc.createElement("body");
   b.id = "BODDAY";
@@ -35,7 +44,10 @@ let init = () => {
   main();
 }
 
+// Create mob
+//
 let create = () => {
+
   let r = Math.random();
 
   if (r < 0.6)
@@ -44,6 +56,8 @@ let create = () => {
     import('./mobs/decrement.js').then((mod) => {let newEl = mod.create(Math.round(Math.random() * d.clientWidth), d.clientHeight)});
 }
 
+// Main loop
+//
 window.main = (ts) => {
 
   if (start == undefined) {
@@ -85,9 +99,7 @@ window.main = (ts) => {
       alert("YOU LOST!!!!!!!!");
       document.body.style.pointerEvents = "none";
     }
-
   }
-
 }
 
 doc.onload = init();
