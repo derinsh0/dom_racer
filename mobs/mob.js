@@ -6,6 +6,8 @@ export function newMob (x, y, w, h) {
 
   newEl.id = uuidv4();
 
+  x < 0 && (x = 0);
+
   newEl.style.left = x + "px";
   newEl.style.top = y + "px";
 
@@ -15,7 +17,7 @@ export function newMob (x, y, w, h) {
   newEl.style.borderStyle = "solid";
   newEl.style.borderWidth = "2px";
 
-  newEl.style.display = "flex";
+//  newEl.style.display = "flex";
   newEl.style.alignContent = "center";
   newEl.style.justifyContent = "center";
 
